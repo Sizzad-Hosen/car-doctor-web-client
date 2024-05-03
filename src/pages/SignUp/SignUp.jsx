@@ -76,7 +76,7 @@ const SignUp = () => {
 
     }
     return (
-        <div className="hero min-h-screen text-gray-900 bg-gray-100">
+        <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row">
         <div className="text-center w-1/2 ">
            
@@ -84,22 +84,22 @@ const SignUp = () => {
            </div>
           <div className="card  w-full max-w-sm shadow-2xl ">
 
-            <form onSubmit={handleSignUp} className="card-body text-gray-900 bg-gray-100">
+            <form onSubmit={handleSignUp} className="card-body bg-gray-100">
             <h1 className="text-3xl text-center font-bold">SignUp now!</h1>
        
             <div className="form-control">
                 <label className="label">
                   <span className="label-text text-gray-900">Name</span>
                 </label>
-                <input type="name" placeholder="Name" name="name" className="input input-bordered" required />
+                <input type="name" placeholder="Name" name="name" className=" text-white input input-bordered" required />
               </div>
 
 
-              <div className="form-control text-gray-900">
+              <div className="form-control ">
                 <label className="label">
                   <span className="label-text text-gray-900">Email</span>
                 </label>
-                <input type="email" placeholder="email" name="email" className=" input input-bordered" required />
+                <input type="email" placeholder="email" name="email" className=" text-white input input-bordered" required />
               </div>
 
               <div className="form-control">
@@ -113,7 +113,7 @@ const SignUp = () => {
               <input  type = {showPassword ? "text" : "password" } 
               placeholder="password"
                name="password" 
-               className="input input-bordered w-full " required />
+               className="input  text-white input-bordered w-full " required />
 
             <span className="absolute top-4 right-2" onClick={()=>setPassword(!showPassword)}>
               {

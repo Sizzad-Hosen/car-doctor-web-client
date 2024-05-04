@@ -26,7 +26,7 @@ const Checkout = () => {
             price:price,
         }
         console.log(order);
-        fetch('https://car-doctor-server-6kk1.vercel.app/bookings',{
+        fetch('http://localhost:5000/bookings',{
             method:'POST',
             headers:{
                 'content-type':'application/json',

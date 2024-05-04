@@ -5,7 +5,7 @@ const Services = () => {
     const [services , setServices] = useState([]);
 
   useEffect(()=>{
-    fetch('https://car-doctor-server-6kk1.vercel.app/services')
+    fetch('http://localhost:5000/services')
     .then(res=>res.json())
     .then(data=>{
       setServices(data);
@@ -30,7 +30,9 @@ const Services = () => {
     <p className="texl-xl text-orange-500">Price : ${service.price}</p>
     <div className="card-actions justify-end">
      <Link to={`/checkout/${service._id}`}>
+
      <button className="btn btn-primary hover:bg-warning ">Book Now</button>
+  
      </Link>
     </div>
   </div>

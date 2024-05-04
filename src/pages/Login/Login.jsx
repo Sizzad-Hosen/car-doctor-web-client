@@ -4,12 +4,50 @@ import { useContext, useState } from "react";
 import  { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
+
+
 const Login = () => {
   const navigate = useNavigate();
 
- const {signIn} = useContext(AuthContext);
+
+ const {signIn ,githubLogin, googleLogin} = useContext(AuthContext);
  const [sucess, setSucess] = useState(null);
  const [loginError , setLoginError] = useState(null);
+
+ const handleGithubLogin=()=>{
+  githubLogin()
+  .then(result=>{
+    console.log(result.user);
+  
+   })
+  
+  
+  
+  
+  .catch(error=>{
+    console.log(error);
+  
+  })
+
+ }
+
+const handleGoogleLogin=()=>{
+  googleLogin()
+  .then(result=>{
+    console.log(result.user);
+  
+   })
+  
+  
+  
+  
+  .catch(error=>{
+    console.log(error);
+  
+  })
+
+}
+
 
     const handleLogin=(e)=>{
         e.preventDefault();
@@ -81,7 +119,7 @@ const Login = () => {
                 <label className="label">
                   <span className="label-text text-gray-900">Password</span>
                 </label>
-                <input type="password" name="password" placeholder="password" className="text-white input input-bordered" required />
+                <input type="password" name="password" placeholder="password" className="  text-white input input-bordered" required />
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover text-gray-900">Forgot password?</a>
                 </label>
@@ -90,6 +128,11 @@ const Login = () => {
                 <button className="btn btn-primary">Login</button>
               </div>
             </form>
+            <div className="text-center border pb-3 border-orange-500">
+            <h2 className="text-xl p-2">Another Login Method</h2>
+              <button onClick={handleGoogleLogin} className="btn mr-3 bg-slate-600 text-white">Google</button>
+              <button onClick={handleGithubLogin} className="btn  bg-blue-600 text-white">Github</button>
+            </div>
             <p className=" text-center p-5">New to Car Doctors ?<Link className="text-blue-500" to="/signup"> Sign Up</Link></p>
             {
               loginError && <p className="text-center p-3 text-red-400">{loginError}</p>
